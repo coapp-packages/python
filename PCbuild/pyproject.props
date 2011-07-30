@@ -4,15 +4,16 @@
     <PyDllName>python32</PyDllName>
     <PythonExe>$(SolutionDir)\python.exe</PythonExe>
     <externalsDir>..\..</externalsDir>
-    <sqlite3Dir>$(externalsDir)\sqlite-3.7.4</sqlite3Dir>
-    <bz2Dir>$(externalsDir)\bzip2-1.0.5</bz2Dir>
-    <opensslDir>$(externalsDir)\openssl-1.0.0a</opensslDir>
-    <tcltkDir>$(externalsDir)\tcltk</tcltkDir>
-    <tcltk64Dir>$(externalsDir)\tcltk64</tcltk64Dir>
-    <tcltkLib>$(tcltkDir)\lib\tcl85.lib $(tcltkDir)\lib\tk85.lib</tcltkLib>
-    <tcltkLibDebug>$(tcltkDir)\lib\tcl85g.lib $(tcltkDir)\lib\tk85g.lib</tcltkLibDebug>
-    <tcltk64Lib>$(tcltk64Dir)\lib\tcl85.lib $(tcltk64Dir)\lib\tk85.lib</tcltk64Lib>
-    <tcltk64LibDebug>$(tcltk64Dir)\lib\tcl85g.lib $(tcltk64Dir)\lib\tk85g.lib</tcltk64LibDebug>
+    <sqlite3Dir>$(externalsDir)\sqlite</sqlite3Dir>
+    <bz2Dir>$(externalsDir)\bzip2</bz2Dir>
+    <opensslDir>$(externalsDir)\openssl</opensslDir>
+    <tcltkDir>$(externalsDir)\tcl</tcltkDir>
+    <tcltk64Dir>$(externalsDir)\tcl</tcltk64Dir>
+    <tcltkLib>$(tcltkDir)\win\Release_VC10\tcl85.lib ;$(tcltkDir)\..\tk\win\Release_VC10\tk85.lib</tcltkLib>
+    <tcltkLibDebug>$(tcltkDir)\win\Debug_VC10\tcl85g.lib; $(tcltkDir)\..\tk\win\Debug_VC10\tk85g.lib</tcltkLibDebug>
+    <tcltk64Lib>$(tcltkDir)\win\Release_AMD64_VC10\tcl85.lib ;$(tcltkDir)\..\tk\win\Release_AMD64_VC10\tk85.lib</tcltk64Lib>
+    <tcltk64LibDebug>$(tcltkDir)\win\Debug_AMD64_VC10\tcl85g.lib; $(tcltkDir)\..\tk\win\Debug_AMD64_VC10\tk85g.lib</tcltk64LibDebug>
+    <tkdir>$(externalsDir)\tk</tkdir>
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
@@ -86,6 +87,9 @@
     </BuildMacro>
     <BuildMacro Include="tcltk64LibDebug">
       <Value>$(tcltk64LibDebug)</Value>
+    </BuildMacro>
+    <BuildMacro Include="tkdir">
+      <Value>$(tkdir)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

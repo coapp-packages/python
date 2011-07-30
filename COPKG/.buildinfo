@@ -1,0 +1,115 @@
+#product-info  {
+    product-name: "python";
+    version: "3.2.1";
+    original-source-location: "http://www.python.org/ftp/python/3.2.1/Python-3.2.1.tgz";
+    original-source-website: "http://www.python.org/download/releases/3.2.1/";
+    license: "PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2";
+    packager: "Hamish C";
+}
+
+
+x86 {
+    compiler: vc10-x86;
+    
+    uses:x86=@"..\tk";
+    uses:x86=@"..\openssl";
+//    uses:x86=@"..\bzip2";  //need the source, but not the build
+//    uses:x86=@"..\tcl";    
+//    uses:x86=@"..\sqlite"; //need the source, but not the build
+
+    targets: { 
+        "PCBuild\python.exe",
+        "PCBuild\pythonw.exe",
+        "PCBuild\python3.dll",
+        "PCBuild\python32.dll",
+        "PCBuild\sqlite3.dll",
+        "PCBuild\_ctypes.pyd",
+        "PCBuild\_elementtree.pyd",
+        "PCBuild\_hashlib.pyd",
+        "PCBuild\_msi.pyd",
+        "PCBuild\_multiprocessing.pyd",
+        "PCBuild\_socket.pyd",
+        "PCBuild\_sqlite3.pyd",
+        "PCBuild\_ssl.pyd",
+        "PCBuild\_testcapi.pyd",
+        "PCBuild\_tkinter.pyd",
+        "PCBuild\bz2.pyd",
+        "PCBuild\pyexpat.pyd",
+        "PCBuild\select.pyd",
+        "PCBuild\unicodedata.pyd",
+        "PCBuild\winsound.pyd",
+        "PCBuild\xxlimited.pyd",
+    };
+     
+    build-command:@"
+       msbuild /p:Platform=Win32 /p:Configuration=Release PCBuild\pcbuild.sln
+    ";
+     
+    clean-command:@"
+        cd PCBuild
+        attrib -S -H -R *
+        del /Q *.sdf *.suo *.user *.lib *.exp *.pyd *.exe *.pdb *.dll 2>NUL
+        if exist Win32-temp-Release rmdir /s /q  Win32-temp-Release > nul 2> nul
+        cd ..
+        if exist Lib\__pycache__ rmdir /s /q  Lib\__pycache__ > nul 2> nul
+        if exist Lib\encodings\__pycache__ rmdir /s /q  Lib\encodings\__pycache__ > nul 2> nul
+        del /Q /S PC\python3dll.obj PC\python_nt.h PC\pythonnt_rc.h 2>NUL
+    ";
+};
+
+x64 {
+    compiler: vc10-x64;
+    
+    uses:x64=@"..\tk";
+    uses:x64=@"..\openssl";
+//  uses:x64=@"..\bzip2";  //need the source, but not the build
+//  uses:x64=@"..\tcl";    
+//  uses:x64=@"..\sqlite"; //need the source, but not the build
+
+    targets: { 
+        "PCBuild\amd64\python.exe",
+        "PCBuild\amd64\pythonw.exe",
+        "PCBuild\amd64\python3.dll",
+        "PCBuild\amd64\python32.dll",
+        "PCBuild\amd64\sqlite3.dll",
+        "PCBuild\amd64\_ctypes.pyd",
+        "PCBuild\amd64\_elementtree.pyd",
+        "PCBuild\amd64\_hashlib.pyd",
+        "PCBuild\amd64\_msi.pyd",
+        "PCBuild\amd64\_multiprocessing.pyd",
+        "PCBuild\amd64\_socket.pyd",
+        "PCBuild\amd64\_sqlite3.pyd",
+        "PCBuild\amd64\_ssl.pyd",
+        "PCBuild\amd64\_testcapi.pyd",
+        "PCBuild\amd64\_tkinter.pyd",
+        "PCBuild\amd64\bz2.pyd",
+        "PCBuild\amd64\pyexpat.pyd",
+        "PCBuild\amd64\select.pyd",
+        "PCBuild\amd64\unicodedata.pyd",
+        "PCBuild\amd64\winsound.pyd",
+        "PCBuild\amd64\xxlimited.pyd",
+    };
+     
+    build-command:@"
+       call setenv /x86       
+       msbuild /p:Platform=win32 /p:Configuration=Release PCBuild\make_buildinfo.vcxproj
+       msbuild /p:Platform=win32 /p:Configuration=Release PCBuild\make_versioninfo.vcxproj
+       call setenv /x64
+       msbuild /p:Platform=x64 /p:Configuration=Release PCBuild\pcbuild.sln
+    ";
+     
+    clean-command:@"
+        cd PCBuild
+        attrib -S -H -R *
+        del /Q *.sdf *.suo *.user *.lib *.exp *.pyd *.exe *.pdb *.dll 2>NUL
+        if exist x64-temp-Release rmdir /s /q  x64-temp-Release > nul 2> nul
+        if exist win32-temp-Release rmdir /s /q  win32-temp-Release > nul 2> nul
+        if exist amd64 rmdir /s /q amd64 > nul 2> nul
+        cd ..
+        if exist Lib\__pycache__ rmdir /s /q  Lib\__pycache__ > nul 2> nul
+        if exist Lib\encodings\__pycache__ rmdir /s /q  Lib\encodings\__pycache__ > nul 2> nul
+        del /Q /S PC\python3dll.obj PC\python_nt.h PC\pythonnt_rc.h 2>NUL
+    ";
+};
+
+

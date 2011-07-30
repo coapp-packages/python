@@ -2,13 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{6158c0ae-d40b-48a7-bf01-4cb0160709be}</UniqueIdentifier>
+      <UniqueIdentifier>{2d6bd2b5-01e8-48a9-8a81-c485503f4673}</UniqueIdentifier>
     </Filter>
     <Filter Include="bzip2 1.0.5 Header Files">
-      <UniqueIdentifier>{d0f92fb8-392e-4168-aa6e-c17496b6a496}</UniqueIdentifier>
+      <UniqueIdentifier>{4cadcafa-c651-423e-9738-e489d629f760}</UniqueIdentifier>
     </Filter>
     <Filter Include="bzip2 1.0.5 Source Files">
-      <UniqueIdentifier>{dea87106-9c7f-4ecf-bf7f-2dd32da6295e}</UniqueIdentifier>
+      <UniqueIdentifier>{151d0ad2-1730-4534-a20f-d17f55fc2e3d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -2,34 +2,34 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Include">
-      <UniqueIdentifier>{9f7656cd-3abd-480e-8257-a3c3075edc8b}</UniqueIdentifier>
+      <UniqueIdentifier>{f732a099-ea7b-47da-8b70-9d668fe3a417}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules">
-      <UniqueIdentifier>{e8f970a9-de93-4029-b38d-022ca199815b}</UniqueIdentifier>
+      <UniqueIdentifier>{76c129c8-8303-4889-adbb-81685330c0e3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules\_io">
-      <UniqueIdentifier>{c532da21-52cc-40c2-8f63-8fdad958a47d}</UniqueIdentifier>
+      <UniqueIdentifier>{907b5bc9-5ff4-4473-a712-4aecfa550a9c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules\zlib">
-      <UniqueIdentifier>{044157be-67f4-4b64-bdb7-59c740b46645}</UniqueIdentifier>
+      <UniqueIdentifier>{d67f3ffa-b2af-4e6a-b204-e0aa96ef9777}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules\cjkcodecs">
-      <UniqueIdentifier>{9784dc61-f840-437b-a8fa-a6c0f260b4c2}</UniqueIdentifier>
+      <UniqueIdentifier>{5e3d4b7b-d45f-4054-9a2f-b9564293b6e3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Objects">
-      <UniqueIdentifier>{aa9f5eb8-b06a-45d9-a427-27bf2db2cbb7}</UniqueIdentifier>
+      <UniqueIdentifier>{35f4b29a-28d2-459c-a29e-7a0a66e491fc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Parser">
-      <UniqueIdentifier>{c12b8016-56c4-47f9-a81a-e201392f34e3}</UniqueIdentifier>
+      <UniqueIdentifier>{55738e1c-801a-49b3-b5bd-8e26045ffd14}</UniqueIdentifier>
     </Filter>
     <Filter Include="PC">
-      <UniqueIdentifier>{043912c8-87ce-41fb-92bb-e495e42ac500}</UniqueIdentifier>
+      <UniqueIdentifier>{3aa76fd8-38f7-43e0-b789-f1a3f831b001}</UniqueIdentifier>
     </Filter>
     <Filter Include="Python">
-      <UniqueIdentifier>{93b43012-de3a-4a55-93a3-3f0b3ec8376c}</UniqueIdentifier>
+      <UniqueIdentifier>{d85bfb30-a143-4d83-afb4-1141f2f4341e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{5072c176-dc29-4508-a4ee-277947a4894e}</UniqueIdentifier>
+      <UniqueIdentifier>{be04d310-320f-4ddf-826a-df1efa420176}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
