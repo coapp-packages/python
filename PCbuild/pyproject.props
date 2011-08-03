@@ -6,19 +6,21 @@
     <externalsDir>..\..</externalsDir>
     <bsddb47Dir>$(externalsDir)\db-4.7.25.0\build_windows</bsddb47Dir>
     <bsddb47DepLibs>ws2_32.lib</bsddb47DepLibs>
-    <bsddbDir>$(bsddb47Dir)</bsddbDir>
-    <bsddbDepLibs>$(bsddb47DepLibs)</bsddbDepLibs>
+    <bsddbDir>$(externalsDir)\berkeleydb\build_windows</bsddbDir>
+	<!-- FIXME: hard-coding library version and architecture for now -->
+    <bsddbDepLibs>$(externalsDir)\berkeleydb\build_windows\Win32\Release\libdb51.lib</bsddbDepLibs>
     <bsddb44Dir>$(externalsDir)\db-4.4.20\build_win32</bsddb44Dir>
     <bsddb44DepLibs />
-    <sqlite3Dir>$(externalsDir)\sqlite-3.6.21</sqlite3Dir>
-    <bz2Dir>$(externalsDir)\bzip2-1.0.5</bz2Dir>
-    <opensslDir>$(externalsDir)\openssl-0.9.8l</opensslDir>
-    <tcltkDir>$(externalsDir)\tcltk</tcltkDir>
-    <tcltk64Dir>$(externalsDir)\tcltk64</tcltk64Dir>
-    <tcltkLib>$(tcltkDir)\lib\tcl85.lib $(tcltkDir)\lib\tk85.lib</tcltkLib>
-    <tcltkLibDebug>$(tcltkDir)\lib\tcl85g.lib $(tcltkDir)\lib\tk85g.lib</tcltkLibDebug>
-    <tcltk64Lib>$(tcltk64Dir)\lib\tcl85.lib $(tcltk64Dir)\lib\tk85.lib</tcltk64Lib>
-    <tcltk64LibDebug>$(tcltk64Dir)\lib\tcl85g.lib $(tcltk64Dir)\lib\tk85g.lib</tcltk64LibDebug>
+    <sqlite3Dir>$(externalsDir)\sqlite</sqlite3Dir>
+    <bz2Dir>$(externalsDir)\bzip2</bz2Dir>
+    <opensslDir>$(externalsDir)\openssl</opensslDir>
+    <tcltkDir>$(externalsDir)\tcl</tcltkDir>
+    <tcltk64Dir>$(externalsDir)\tcl</tcltk64Dir>
+    <tcltkLib>$(tcltkDir)\win\Release_VC10\tcl85.lib ;$(tcltkDir)\..\tk\win\Release_VC10\tk85.lib</tcltkLib>
+    <tcltkLibDebug>$(tcltkDir)\win\Debug_VC10\tcl85g.lib; $(tcltkDir)\..\tk\win\Debug_VC10\tk85g.lib</tcltkLibDebug>
+    <tcltk64Lib>$(tcltkDir)\win\Release_AMD64_VC10\tcl85.lib ;$(tcltkDir)\..\tk\win\Release_AMD64_VC10\tk85.lib</tcltk64Lib>
+    <tcltk64LibDebug>$(tcltkDir)\win\Debug_AMD64_VC10\tcl85g.lib; $(tcltkDir)\..\tk\win\Debug_AMD64_VC10\tk85g.lib</tcltk64LibDebug>
+    <tkdir>$(externalsDir)\tk</tkdir>
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
@@ -110,6 +112,9 @@
     </BuildMacro>
     <BuildMacro Include="tcltk64LibDebug">
       <Value>$(tcltk64LibDebug)</Value>
+    </BuildMacro>
+    <BuildMacro Include="tkdir">
+      <Value>$(tkdir)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

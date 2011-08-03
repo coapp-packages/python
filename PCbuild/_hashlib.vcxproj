@@ -126,11 +126,6 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <PreBuildEvent>
-      <Command>cd "$(SolutionDir)"
-"$(PythonExe)" build_ssl.py Release $(Platform) -a
-</Command>
-    </PreBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>$(opensslDir)\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -139,15 +134,10 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out32\libeay32.lib;$(opensslDir)\out32\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out32dll\libeay32.lib;$(opensslDir)\out32dll\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <PreBuildEvent>
-      <Command>cd "$(SolutionDir)"
-"$(PythonExe)" build_ssl.py Release $(Platform) -a
-</Command>
-    </PreBuildEvent>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -159,15 +149,10 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out64\libeay32.lib;$(opensslDir)\out64\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out64dll\libeay32.lib;$(opensslDir)\out64dll\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <PreBuildEvent>
-      <Command>cd "$(SolutionDir)"
-"$(PythonExe)" build_ssl.py Release $(Platform) -a
-</Command>
-    </PreBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>$(opensslDir)\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -176,15 +161,10 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out32\libeay32.lib;$(opensslDir)\out32\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out32dll\libeay32.lib;$(opensslDir)\out32dll\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <PreBuildEvent>
-      <Command>cd "$(SolutionDir)"
-"$(PythonExe)" build_ssl.py Release $(Platform) -a
-</Command>
-    </PreBuildEvent>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -200,11 +180,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PGInstrument|Win32'">
-    <PreBuildEvent>
-      <Command>cd "$(SolutionDir)"
-"$(PythonExe)" build_ssl.py Release $(Platform) -a
-</Command>
-    </PreBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>$(opensslDir)\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -213,15 +188,10 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out32\libeay32.lib;$(opensslDir)\out32\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out32dll\libeay32.lib;$(opensslDir)\out32dll\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PGInstrument|x64'">
-    <PreBuildEvent>
-      <Command>cd "$(SolutionDir)"
-"$(PythonExe)" build_ssl.py Release $(Platform) -a
-</Command>
-    </PreBuildEvent>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -233,16 +203,11 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out64\libeay32.lib;$(opensslDir)\out64\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out64dll\libeay32.lib;$(opensslDir)\out64dll\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PGUpdate|Win32'">
-    <PreBuildEvent>
-      <Command>cd "$(SolutionDir)"
-"$(PythonExe)" build_ssl.py Release $(Platform) -a
-</Command>
-    </PreBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>$(opensslDir)\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -251,15 +216,10 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out32\libeay32.lib;$(opensslDir)\out32\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out32dll\libeay32.lib;$(opensslDir)\out32dll\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PGUpdate|x64'">
-    <PreBuildEvent>
-      <Command>cd "$(SolutionDir)"
-"$(PythonExe)" build_ssl.py Release $(Platform) -a
-</Command>
-    </PreBuildEvent>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -271,7 +231,7 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out64\libeay32.lib;$(opensslDir)\out64\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(opensslDir)\out64dll\libeay32.lib;$(opensslDir)\out64dll\ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
