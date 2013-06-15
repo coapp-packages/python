@@ -1,0 +1,43 @@
+@import default_tools;
+
+default {
+    (PlatformToolsets, Architectures, ReleaseOrDebug, Linkage, "make_versioninfo.vcxproj,libpython.vcxproj," ) => {
+        .PushEnvironment{};
+        .LoadSystemEnvironment{};
+        .SetEnvironmentFromTarget.Target = "VC_${0}_${1}";
+        
+        .Message.Text = @"Environment vc_${0}_${1} -- ${2}  ${3}  *** IsValid => $(IsEnvironmentValid)";
+
+        .Warning{
+            Condition="!$(IsEnvironmentValid)";
+            Text = @"********\r\nSKIPPING: vc_${0}_${1} -- ${2}  ${3}  ";
+        };
+
+        .Exec {
+            Condition="$(IsEnvironmentValid)";
+            Command = @"msbuild ${4} /p:PlatformToolset=${0};Platform=${1};Configuration=${2};UsesConfigurationType=${3}";
+        };
+
+        .Exec {
+            // FIXME: I should really be using <PostBuild> or <PreBuild> in the vcxproj for this, but I couldn't figure out how to locate the .exe
+            Condition="$(IsEnvironmentValid) And '${4}' == 'make_versioninfo.vcxproj'";
+            Command = @"Output\${0}\${1}\${2}\${3}\make_versioninfo.exe > ..\PC\python_nt.h";
+        };
+
+        .PopEnvironment{};
+    };
+};
+
+clean {
+    .RemoveDir.Directories = @"intermediate";
+    .Exec {
+        // FIXME: Is there a .RemoveFile ?
+        Condition="Exists('..\PC\python_nt.h')";
+        Command = @"del ..\PC\python_nt.h";
+    };
+};
+
+nuke {
+    .RemoveDir.Directories = @"output";
+    .RemoveDir.Directories = @"intermediate";
+};
