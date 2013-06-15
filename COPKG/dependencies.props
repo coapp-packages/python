@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Linkage-zlib>$(UsesConfigurationType)</Linkage-zlib>
+	<Linkage-zlib_redist>$(UsesConfigurationType)</Linkage-zlib_redist>
+  </PropertyGroup>
+  <Import Project="$(MSBuildThisFileDirectory)packages\zlib\build\native\zlib.props" Condition="exists('$(MSBuildThisFileDirectory)packages\zlib\build\native\zlib.props')"/>
+  <Import Project="$(MSBuildThisFileDirectory)packages\zlib.redist\build\native\zlib.redist.props" Condition="exists('$(MSBuildThisFileDirectory)packages\zlib.redist\build\native\zlib.redist.props')"/>
+</Project>
+

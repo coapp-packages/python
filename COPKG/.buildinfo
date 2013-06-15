@@ -1,7 +1,12 @@
 @import default_tools;
 
 default {
-    (PlatformToolsets, Architectures, ReleaseOrDebug, Linkage, "make_versioninfo.vcxproj,libpython.vcxproj," ) => {
+    .Exec {
+        Condition="Exists('$(MSBuildThisFileDirectory)packages.config')";
+        Command = @"nuget install $(MSBuildThisFileDirectory)packages.config -x -OutputDirectory .\packages >nul";
+    };
+
+    (PlatformToolsets, Architectures, ReleaseOrDebug, Linkage, "make_versioninfo.vcxproj,python27.vcxproj," ) => {
         .PushEnvironment{};
         .LoadSystemEnvironment{};
         .SetEnvironmentFromTarget.Target = "VC_${0}_${1}";
@@ -21,7 +26,7 @@ default {
         .Exec {
             // FIXME: I should really be using <PostBuild> or <PreBuild> in the vcxproj for this, but I couldn't figure out how to locate the .exe
             Condition="$(IsEnvironmentValid) And '${4}' == 'make_versioninfo.vcxproj'";
-            Command = @"Output\${0}\${1}\${2}\${3}\make_versioninfo.exe > ..\PC\python_nt.h";
+            Command = @"Output\${0}\${1}\${2}\${3}\make_versioninfo.exe > ..\PC\pythonnt_rc.h";
         };
 
         .PopEnvironment{};
@@ -32,12 +37,17 @@ clean {
     .RemoveDir.Directories = @"intermediate";
     .Exec {
         // FIXME: Is there a .RemoveFile ?
-        Condition="Exists('..\PC\python_nt.h')";
-        Command = @"del ..\PC\python_nt.h";
+        Condition="Exists('..\PC\pythonnt_rc.h')";
+        Command = @"del ..\PC\pythonnt_rc.h";
     };
 };
 
 nuke {
     .RemoveDir.Directories = @"output";
     .RemoveDir.Directories = @"intermediate";
+    .Exec {
+        // FIXME: Is there a .RemoveFile ?
+        Condition="Exists('..\PC\pythonnt_rc.h')";
+        Command = @"del ..\PC\pythonnt_rc.h";
+    };
 };
