@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="PreBuildCmds;PreBuildTargets;Build;PostBuildCmds;PostBuildTargets" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="CoApp" >
+    <CoAppEtcDirectory>$(registry:HKEY_LOCAL_MACHINE\Software\Outercurve\CoApp.Powershell\etc)</CoAppEtcDirectory>
+  </PropertyGroup>
+  
+  <Import Condition="Exists('$(CoAppEtcDirectory)\common-variables.vcxproj')" Project="$(CoAppEtcDirectory)\common-variables.vcxproj" />
+  <PropertyGroup Label="CustomSettings" />
+  
+  <PropertyGroup Label="ConfigurationSettings">
+    <ConfigurationType>Application</ConfigurationType>
+
+    <Defines>WIN32;_CONSOLE</Defines>
+
+    <IncludeDirectories>..\Include;..\PC</IncludeDirectories>
+
+    <Libraries>python27.lib</Libraries>
+  </PropertyGroup>
+
+  <Import Condition="Exists('$(CoAppEtcDirectory)\common-header.vcxproj')" Project="$(CoAppEtcDirectory)\common-header.vcxproj" />
+
+  <ItemGroup Label="C Source Files">
+    <ClCompile Include="..\PC\WinMain.c" />
+  </ItemGroup>
+
+  <ItemGroup Label="Resource Files">
+    <ResourceCompile Include="..\PC\python_exe.rc" />
+  </ItemGroup>
+
+  <Import Condition="Exists('$(CoAppEtcDirectory)\common-footer.vcxproj')" Project="$(CoAppEtcDirectory)\common-footer.vcxproj" />
+</Project>
