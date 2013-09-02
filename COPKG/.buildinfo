@@ -6,7 +6,7 @@ default {
         Command = @"nuget install $(MSBuildThisFileDirectory)packages.config -x -OutputDirectory .\packages >nul";
     };
 
-    (PlatformToolsets, Architectures, ReleaseOrDebug, "dynamic", "make_versioninfo.vcxproj,python27.vcxproj,python.vcxproj,pythonw.vcxproj,winsound.vcxproj,_msi.vcxproj,_socket.vcxproj,_testcapi.vcxproj" ) => {
+    (PlatformToolsets, Architectures, ReleaseOrDebug, "dynamic", "make_versioninfo.vcxproj,python27.vcxproj,python.vcxproj,pythonw.vcxproj,winsound.vcxproj,_msi.vcxproj,_socket.vcxproj,_testcapi.vcxproj,select.vcxproj" ) => {
         .PushEnvironment{};
         .LoadSystemEnvironment{};
         .SetEnvironmentFromTarget.Target = "VC_${0}_${1}";
